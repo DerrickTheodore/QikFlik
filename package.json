@@ -1,5 +1,5 @@
 {
-  "name": "react-boilerplate",
+  "name": "qik-flik",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DerrickTheodore/react-project-boilerplate.git"
+    "url": "git+https://github.com/DerrickTheodore/QikFlik.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DerrickTheodore/react-project-boilerplate/issues"
+    "url": "https://github.com/DerrickTheodore/QikFlik/issues"
   },
-  "homepage": "https://github.com/DerrickTheodore/react-project-boilerplate#readme",
+  "homepage": "https://github.com/DerrickTheodore/QikFlik#readme",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

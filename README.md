@@ -1,4 +1,4 @@
-# React-Project-Boilerplate
+# QikFlik
 ---
 
 Welcome.
