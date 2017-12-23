@@ -1,9 +1,21 @@
 import React from 'react';
+import MyFancyComponent from './MyFancyComponent.jsx';
 
-const App = () => {
+class App extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
+
+  componentDidMount(){
+
+  }
+
+  render(){
     return (
-      <h1>Hellloooo Wooorrlllddd!</h1>
+     <MyFancyComponent />
     )
+  }
 }
 
 export default App;
