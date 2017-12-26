@@ -47,8 +47,6 @@ class App extends React.Component{
       let movie = this.state.currentMovie.title;
       axios.get(`http://127.0.0.1:8080/search/showtimes/${id}/${lat}/${lng}/${radius}/${movie}`)
       .then( (results) => {
-        console.log('results', results.data)
-
         this.setState({ markersWithInfo: results.data});
       })
       .catch(err => console.error(err))
