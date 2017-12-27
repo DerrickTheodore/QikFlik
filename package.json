@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch",
-    "start": "node server.js"
+    "pbuild": "webpack --watch",
+    "start": "node server.js",
+    "build": "webpack --config ./webpack.config.js --progress --colors",
+    "postinstall": "npm run build" 
   },
   "repository": {
     "type": "git",
