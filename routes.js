@@ -19,6 +19,7 @@ router.get('/movie/:query', (req, res) => {
     }         
   })
   .then((results) => {
+    res.set('Content-Type', 'application/json');
     res.json(results.data)
   })
   .catch(err => console.error(err))
@@ -49,6 +50,7 @@ router.get('/showtimes/:id/:lat/:lng/:radius/:movie', (req, res) => {
   .then((results) => {
     let showtimes = results.data.showtimes;
     util.cinemaLocation(showtimes, lat, lng, radius, movie, (showtimesWithLoc) => {
+      res.set('Content-Type', 'application/json');
       res.json(showtimesWithLoc);
     })
   })
