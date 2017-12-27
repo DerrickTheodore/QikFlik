@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   context: path.join(__dirname, 'src'),
@@ -25,4 +26,9 @@ module.exports = {
       path.join(__dirname, 'node_modules'),
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'GOOGLE_API': JSON.stringify(process.env.GOOGLE_API)
+    })
+  ]
 };
