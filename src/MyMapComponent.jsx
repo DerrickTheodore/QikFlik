@@ -2,6 +2,7 @@ import React from 'react';
 import { compose, withProps, withStateHandlers, lifecycle } from "recompose";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow, DirectionsRenderer } from "react-google-maps";
 const CaretUp = require("react-icons/lib/fa/caret-up");
+import keys from '../credentials';
 // import keys from '../credentials';  || keys.GOOGLE_API <--- PRODUCTION
 
 
@@ -23,7 +24,7 @@ const MyMapComponent = compose(
     })
   }),
   withProps({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API}&v=3.exp&libraries=geometry,drawing,places`,
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API || keys.GOOGLE_API }&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px`, width: `75%`, margin: `auto`}} />,
     mapElement: <div style={{ height: `100%` }} />,

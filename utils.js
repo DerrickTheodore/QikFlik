@@ -18,24 +18,32 @@ module.exports = {
     .then( (results) => {
       let filteredShowtimes = {};
       let cinemas = results.data.cinemas;
-      const convertTime = (s) => {
+      const convertToLocalTime = (s) => {
         return new Date(s)
         .toLocaleTimeString({locales: "hc"}, {hour12: true, timeZone: "America/New_York"})
       }
+      const convertToTimeObj = (s) => {
+        return new Date(s)
+      }
+
+      
 
       for(let i=0;i<showtimes.length;i++) {
 
         var filteredShowtime = {};
         for(let j=0;j<cinemas.length;j++) {
-          if(showtimes[i].cinema_id === cinemas[j].id && !filteredShowtimes[`${showtimes[i].cinema_id}`] && (convertTime(showtimes[i].start_at) > convertTime(new Date()))) {
+          if(showtimes[i].cinema_id === cinemas[j].id && (convertToTimeObj(showtimes[i].start_at) > convertToTimeObj(new Date()))) {  
             filteredShowtime.cinema_id = showtimes[i].cinema_id;
             filteredShowtime.theater = cinemas[j].name;
             filteredShowtime.title = movie;
             filteredShowtime.poster = showtimes[i].poster_image_thumbnail;
             filteredShowtime.movie_id = showtimes[i].movie_id;
-            filteredShowtime.start_at = convertTime(showtimes[i].start_at);
+            filteredShowtime.start_at = convertToLocalTime(showtimes[i].start_at);
+            filteredShowtime.time = showtimes[i].start_at;
             filteredShowtime.location = {lat: cinemas[j].location.lat, lng: cinemas[j].location.lon};
-            filteredShowtimes[`${showtimes[i].cinema_id}`] = filteredShowtime;
+            if( convertToTimeObj(showtimes[i].start_at) < !filteredShowtimes[`${showtimes[i].cinema_id}`] ? filteredShowtimes[`${showtimes[i].cinema_id}`].time : convertToTimeObj(new Date()) ) {
+              filteredShowtimes[`${showtimes[i].cinema_id}`] = filteredShowtime;
+            }
           }
         }
       }
